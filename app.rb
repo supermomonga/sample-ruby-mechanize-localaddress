@@ -43,9 +43,11 @@ local_addresses = Socket.getifaddrs.select{|_|
 
 puts 'Try: default'
 puts 'Got: ' + test
+puts '-' * 20
 
 local_addresses.each do |_|
-  puts 'Try: ' + _.addr.ip_address
+  puts "Try: #{_.addr.ip_address}(#{_.name})"
   puts 'Got: ' + test(_.addr.ip_address)
+  puts '-' * 20
 end
 
